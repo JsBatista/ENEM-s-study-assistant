@@ -1,0 +1,101 @@
+@charset "utf-8";
+
+body{
+    background-color: gainsboro;
+}
+h1{
+    text-align: center;
+}
+h2{
+    text-align: center;
+}
+
+#imageDiv{
+    display: block;
+    position: absolute;
+    top:0px;
+    left: 0px;
+
+}
+#example{
+    border-radius: 10px;
+    border: 2px solid aquamarine;
+}
+#areas{
+    display: none;
+    position: absolute;
+    top: 150px;
+    left: 250px;
+    opacity: 0.0;
+    transition: 0.3s;
+}
+#volumes{
+    display: none;
+    position: absolute;
+    top: 200px;
+    left: 250px;
+    opacity: 0.0;
+    transition: 0.3s;
+}
+
+.option{
+    font-size: 15pt;
+    margin: 30px 10px 30px 20px;  
+    padding: 10px;
+    font-weight: bold;
+    border: 2px solid gray;
+    box-sizing: border-box;
+    width: 200px;
+    border-radius: 4px;
+    transition: 0.3s;
+    background-color: white;
+}
+
+#example{
+    display: block;
+    position: absolute;
+    top: 200px;
+    left: 500px;
+    transition: 0.3s;
+    opacity: 0.0;
+}
+
+#inputDiv{
+    display: none;
+    position: absolute;
+    top: 120px;
+    left: 1000px;
+    transition: 0.3s;
+    opacity: 0.0;
+}
+.textInput{
+    font-size: 15pt;
+    font-weight: Bold;
+    margin: 20px 0px 0px 0px;
+}
+
+.input{
+    border-radius: 10px;
+    width: 60px;
+    border-color: aqua;
+    box-shadow: 5px 5px 3px gray;
+}
+
+#resultDiv{
+    display: block;
+    position: absolute;
+    top: 150px;
+    left: 200px;
+    font-size: 15pt;
+    font-weight: Bold;
+    margin: 35px 0px 5px 0px;
+    border: 10px solid aqua;
+    border-radius: 10px;
+    box-shadow: 5px 5px 3px gray;
+    padding: 10px;
+    background-color: white;
+}
+#result{
+    font-size: 15pt;
+    font-weight: normal;
+}
