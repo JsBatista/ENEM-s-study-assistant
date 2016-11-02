@@ -36,7 +36,7 @@ function presets(func){
         case "pyramidVolume":
             return ["Base:", "Base Height:","Prism Height:"];
             break;
-        case "twoSpotsDistance":
+        case "distance":
             return ["xA:", "yA:", "xB:", "yB:"];
             break;
         case "interest":
