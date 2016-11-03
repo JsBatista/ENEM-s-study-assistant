@@ -1,5 +1,8 @@
 var lastNumb;
+var areaToogle = false;
+var volumeToogle = false;
 var func = "none";
+
 
 function presets(func){
     switch (func){
@@ -110,6 +113,9 @@ function change(topic, numb){
     else{
         lastNumb = numb;
     }
+    if(numb < 6){
+        disappear();
+    }
     document.getElementsByClassName("option")[numb].style.backgroundColor = "aquamarine";
     document.getElementById("example").style.opacity = "0.0";
     document.getElementById("inputDiv").style.opacity = "0.0";
@@ -144,10 +150,10 @@ function toogle(nav, numb){
     if(lastNumb != undefined){
         document.getElementsByClassName("option")[lastNumb].style.backgroundColor = "white";
     }
-    document.getElementById("areas").style.opacity = "0.0";
-    document.getElementById("volumes").style.opacity = "0.0";
-    document.getElementById("areas").style.display = "none";
-    document.getElementById("volumes").style.display = "none";
+    areaToogle = false;
+    volumeToogle = false;
+    numb == 1? areaToogle = true : volumeToogle = true;
+    disappear();
     document.getElementById(nav).style.display = "block";
     document.getElementsByClassName("option")[1].style.backgroundColor = "white";
     document.getElementsByClassName("option")[2].style.backgroundColor = "white";
@@ -156,6 +162,15 @@ function toogle(nav, numb){
 }
 function appear(nav, numb){
     document.getElementById(nav).style.opacity = "1.0";
+}
+
+function disappear(){
+    document.getElementById("areas").style.opacity = "0.0";
+    document.getElementById("volumes").style.opacity = "0.0";
+    document.getElementById("areas").style.display = "none";
+    document.getElementById("volumes").style.display = "none";
+    document.getElementsByClassName("option")[1].style.backgroundColor = "white";
+    document.getElementsByClassName("option")[2].style.backgroundColor = "white";
 }
 
 function load(){
