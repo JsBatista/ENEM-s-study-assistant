@@ -3,10 +3,9 @@ var areaToogle = false;
 var volumeToogle = false;
 var func = "none";
 
-
 function presets(func){
     switch (func){
-        case "combination":
+        case "simpleCombination":
             return ["N:", "P:"];
             break;
         case "circle":
@@ -39,7 +38,7 @@ function presets(func){
         case "pyramidVolume":
             return ["Base:", "Base Height:","Prism Height:"];
             break;
-        case "distance":
+        case "twoSpotsDistance":
             return ["xA:", "yA:", "xB:", "yB:"];
             break;
         case "interest":
@@ -48,62 +47,11 @@ function presets(func){
         case "pythagoras":
             return ["B:", "C:"];
             break;
-        case "trigonometric":
+        case "sct":
             return ["Opposite Cathetus:", "Adjacent Cathetus:", "Hypotenuse:"];
             break;
     }
 }
-function call(par1, par2, par3, par4, par5, par6){
-    switch (func){
-        case "combination":
-            document.getElementById("result").innerHTML = simpleCombination(par1, par2, par3, par4, par5, par6);
-            break;
-        case "circle":
-            document.getElementById("result").innerHTML = circle(par1, par2, par3, par4, par5, par6);
-            break;
-        case "diamond":
-            document.getElementById("result").innerHTML = diamond(par1, par2, par3, par4, par5, par6);
-            break;
-        case "rectangle":
-            document.getElementById("result").innerHTML = rectangle(par1, par2, par3, par4, par5, par6);
-            break;
-        case "triangle":
-            document.getElementById("result").innerHTML = triangle(par1, par2, par3, par4, par5, par6);
-            break;
-        case "trapezium":
-            document.getElementById("result").innerHTML = trapezium(par1, par2, par3, par4, par5, par6);
-            break;
-        case "cubeVolume":
-            document.getElementById("result").innerHTML = cubeVolume(par1, par2, par3, par4, par5, par6);
-            break;
-        case "triangularVolume":
-            document.getElementById("result").innerHTML = triangularVolume(par1, par2, par3, par4, par5, par6);
-            break;
-        case "cilinderVolume":
-            document.getElementById("result").innerHTML = cilinderVolume(par1, par2, par3, par4, par5, par6);
-            break;
-        case "coneVolume":
-            document.getElementById("result").innerHTML = coneVolume(par1, par2, par3, par4, par5, par6);
-            break;
-        case "pyramidVolume":
-            document.getElementById("result").innerHTML = pyramidVolume(par1, par2, par3, par4, par5, par6);
-            break;
-        case "twoSposDistance":
-            document.getElementById("result").innerHTML = twoSposDistance(par1, par2, par3, par4, par5, par);
-            break;
-        case "interest":
-            document.getElementById("result").innerHTML = interest(par1, par2, par3, par4, par5, par6);
-            break;
-        case "pythagoras":
-            document.getElementById("result").innerHTML = pythagoras(par1, par2, par3, par4, par5, par6);
-            break;
-        case "trigonometric":
-            document.getElementById("result").innerHTML = sct(par1, par2, par3, par4, par5, par6);
-            break;
-            
-    }
-}
-
 
 function change(topic, numb){
     if(lastNumb != undefined){
@@ -120,7 +68,7 @@ function change(topic, numb){
     document.getElementById("example").style.opacity = "0.0";
     document.getElementById("inputDiv").style.opacity = "0.0";
     func = topic;
-    
+    reload();
     setTimeout(function(){fadeIn(topic)}, 300);
 }
 
@@ -174,7 +122,8 @@ function disappear(){
 }
 
 function load(){
-    let images = ["combination","nothing", "nothing", "distance", "interest","pythagoras", "trigonometric", "circle", "diamond", "rectangle", "triangle", "trapezium", "cubeVolume", "triangularVolume", "cilinderVolume", "coneVolume", "pyramidVolume"];
+    let images = ["simpleCombination","nothing", "nothing", "twoSpotsDistance", "interest","pythagoras", "sct", "circle", "diamond", "rectangle", "triangle", "trapezium", "cubeVolume", "triangularVolume", "cilinderVolume", "coneVolume", "pyramidVolume"];
+    
     
     document.getElementsByClassName("option")[0].addEventListener("click", function(){ change(images[0], 0)});
     document.getElementsByClassName("option")[1].addEventListener("click", function(){ toogle("areas", 1) });
@@ -183,8 +132,12 @@ function load(){
     for(let i = 3; i < images.length; i++){
         document.getElementsByClassName("option")[i].addEventListener("click", function(){ change(images[i], i) });
     }
+    
+}
+
+function reload(){ 
     for(let j = 0; j < 6; j++){
-        document.getElementsByClassName("input")[j].addEventListener("keyup", function(){call(document.getElementsByClassName("input")[0].value, document.getElementsByClassName("input")[1].value, document.getElementsByClassName("input")[2].value, document.getElementsByClassName("input")[3].value, document.getElementsByClassName("input")[4].value, document.getElementsByClassName("input")[5].value)})
+        document.getElementsByClassName("input")[j].addEventListener("keyup", function(){formulas[func](document.getElementsByClassName("input")[0].value*1, document.getElementsByClassName("input")[1].value*1, document.getElementsByClassName("input")[2].value*1, document.getElementsByClassName("input")[3].value*1, document.getElementsByClassName("input")[4].value*1, document.getElementsByClassName("input")[5].value*1)})
     }
 }
 
