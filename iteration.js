@@ -105,7 +105,7 @@ function load(){
 }
 
 function call(){
-    formulas[controlData.func](document.getElementsByClassName("input")[0].value, document.getElementsByClassName("input")[1].value, document.getElementsByClassName("input")[2].value, document.getElementsByClassName("input")[3].value, document.getElementsByClassName("input")[4].value, document.getElementsByClassName("input")[5].value);
+    document.getElementById("result").innerHTML = formulas[controlData.func](document.getElementsByClassName("input")[0].value, document.getElementsByClassName("input")[1].value, document.getElementsByClassName("input")[2].value, document.getElementsByClassName("input")[3].value, document.getElementsByClassName("input")[4].value, document.getElementsByClassName("input")[5].value);
 }
 
 window.onload = load();
