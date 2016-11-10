@@ -105,7 +105,13 @@ function load(){
 }
 
 function call(){
-    document.getElementById("result").innerHTML = formulas[controlData.func](document.getElementsByClassName("input")[0].value, document.getElementsByClassName("input")[1].value, document.getElementsByClassName("input")[2].value, document.getElementsByClassName("input")[3].value, document.getElementsByClassName("input")[4].value, document.getElementsByClassName("input")[5].value);
+    let result = formulas[controlData.func](document.getElementsByClassName("input")[0].value, document.getElementsByClassName("input")[1].value, document.getElementsByClassName("input")[2].value, document.getElementsByClassName("input")[3].value, document.getElementsByClassName("input")[4].value, document.getElementsByClassName("input")[5].value);
+    if(isNaN(result)){
+        document.getElementById("result").innerHTML = "Insufficient / Wrong data!";
+    }
+    else if(typeof result == 'number'){
+        document.getElementById("result").innerHTML = result;
+    }
 }
 
 window.onload = load();
