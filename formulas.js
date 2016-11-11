@@ -10,9 +10,11 @@ var formulas = {
     return true;
     },
     factorial: function(number){
-        return number == 0? 1 :number * formulas.factorial(number -1 );  
+        return number == 0? 1 :number * this.factorial(number -1 );  
     },
-    simpleCombination: (n, p) =>  formulas.factorial(n)/(formulas.factorial(p) * formulas.factorial(n - p)),
+    simpleCombination: function (n, p) {
+         return this.factorial(n)/(this.factorial(p) * this.factorial(n - p));
+    },
 
     circle: (ray) => parseFloat((Math.PI*(ray*ray)).toFixed(2)),
 
@@ -23,9 +25,7 @@ var formulas = {
         if(formulas.check(cosAng, sideA, sideB, smallerDiagonal)){
             return parseFloat(diamond((Math.sqrt(sideA*sideA + sideB*sideB - (2 * sideA * sideB * cosAng))) , smallerDiagonal)).toFixed(2);
         }
-        else{
-            return "Insufficient / Wrong data!";
-        }
+        return "Insufficient / Wrong data!";
     },
     
     rectangle: (sideA, sideB) => parseFloat((sideA * sideB).toFixed(2)),
@@ -41,9 +41,7 @@ var formulas = {
         if(formulas.check(sideA, sideB, senAngBase)){
             return parseFloat(((sideA*sideB*senAngBase) / 2).toFixed(2));
         }
-        else{
-            return "Insufficient / Wrong data!";
-        }
+        return "Insufficient / Wrong data!";
     },
     
     trapezium: (bigBase, smallBase, height) => parseFloat(((height * (smallBase + bigBase))/2).toFixed(2)),
