@@ -56,7 +56,7 @@ function fadeIn(topic){
         document.getElementsByClassName("input")[i].value = "";
     }
     document.getElementById("result").innerHTML = "Your Result Here!";
-    document.getElementById("example").src = "images/" + topic + ".png"; 
+    document.getElementById("example").src = "img/" + topic + ".png"; 
     document.getElementById("example").style.opacity = "1.0";
     document.getElementById("inputDiv").style.opacity = "1.0";
     document.getElementById("inputDiv").style.display = "block";
