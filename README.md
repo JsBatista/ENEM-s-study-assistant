@@ -14,3 +14,7 @@ Enem is a test in the Brazil that calculate the skill of Brazil education. It gi
 # Build
 
 For now, you must open the index.html with OS default browser.
+
+# LICENSE
+
+[MIT LICENSE](LICENSE)
